@@ -1,0 +1,36 @@
+Requirements:
+
+* Docker
+* bash
+
+Instructions:
+
+1. run `./launch.sh`
+
+2. observe the output of `ninja`:
+
+   ```
+   [1/1] Linking CXX executable main
+   FAILED: main
+   : && /usr/bin/clang++-18 -g  CMakeFiles/messages.dir/generated/src/messages.pb.cc.o CMakeFiles/main.dir/src/main.cpp.o -o main  /opt/protobuf/lib/libprotobuf.a  /opt/protobuf/lib/libabsl_log_internal_check_op.a  /opt/protobuf/lib/libabsl_leak_check.a  /opt/protobuf/lib/libabsl_die_if_null.a  /opt/protobuf/lib/libabsl_log_internal_conditions.a  /opt/protobuf/lib/libabsl_log_internal_message.a  /opt/protobuf/lib/libabsl_log_internal_nullguard.a  /opt/protobuf/lib/libabsl_examine_stack.a  /opt/protobuf/lib/libabsl_log_internal_format.a  /opt/protobuf/lib/libabsl_log_internal_proto.a  /opt/protobuf/lib/libabsl_log_internal_log_sink_set.a  /opt/protobuf/lib/libabsl_log_sink.a  /opt/protobuf/lib/libabsl_log_entry.a  /opt/protobuf/lib/libabsl_flags_internal.a  /opt/protobuf/lib/libabsl_flags_marshalling.a  /opt/protobuf/lib/libabsl_flags_reflection.a  /opt/protobuf/lib/libabsl_flags_config.a  /opt/protobuf/lib/libabsl_flags_program_name.a  /opt/protobuf/lib/libabsl_flags_private_handle_accessor.a  /opt/protobuf/lib/libabsl_flags_commandlineflag.a  /opt/protobuf/lib/libabsl_flags_commandlineflag_internal.a  /opt/protobuf/lib/libabsl_log_initialize.a  /opt/protobuf/lib/libabsl_log_internal_globals.a  /opt/protobuf/lib/libabsl_log_globals.a  /opt/protobuf/lib/libabsl_vlog_config_internal.a  /opt/protobuf/lib/libabsl_log_internal_fnmatch.a  /opt/protobuf/lib/libabsl_raw_hash_set.a  /opt/protobuf/lib/libabsl_hash.a  /opt/protobuf/lib/libabsl_city.a  /opt/protobuf/lib/libabsl_low_level_hash.a  /opt/protobuf/lib/libabsl_hashtablez_sampler.a  /opt/protobuf/lib/libabsl_random_distributions.a  /opt/protobuf/lib/libabsl_random_seed_sequences.a  /opt/protobuf/lib/libabsl_random_internal_pool_urbg.a  /opt/protobuf/lib/libabsl_random_internal_randen.a  /opt/protobuf/lib/libabsl_random_internal_randen_hwaes.a  /opt/protobuf/lib/libabsl_random_internal_randen_hwaes_impl.a  /opt/protobuf/lib/libabsl_random_internal_randen_slow.a  /opt/protobuf/lib/libabsl_random_internal_platform.a  /opt/protobuf/lib/libabsl_random_internal_seed_material.a  /opt/protobuf/lib/libabsl_random_seed_gen_exception.a  /opt/protobuf/lib/libabsl_statusor.a  /opt/protobuf/lib/libabsl_status.a  /opt/protobuf/lib/libabsl_cord.a  /opt/protobuf/lib/libabsl_cordz_info.a  /opt/protobuf/lib/libabsl_cord_internal.a  /opt/protobuf/lib/libabsl_cordz_functions.a  /opt/protobuf/lib/libabsl_exponential_biased.a  /opt/protobuf/lib/libabsl_cordz_handle.a  /opt/protobuf/lib/libabsl_crc_cord_state.a  /opt/protobuf/lib/libabsl_crc32c.a  /opt/protobuf/lib/libabsl_crc_internal.a  /opt/protobuf/lib/libabsl_crc_cpu_detect.a  /opt/protobuf/lib/libabsl_bad_optional_access.a  /opt/protobuf/lib/libabsl_strerror.a  /opt/protobuf/lib/libabsl_str_format_internal.a  /opt/protobuf/lib/libabsl_synchronization.a  /opt/protobuf/lib/libabsl_stacktrace.a  /opt/protobuf/lib/libabsl_symbolize.a  /opt/protobuf/lib/libabsl_debugging_internal.a  /opt/protobuf/lib/libabsl_demangle_internal.a  /opt/protobuf/lib/libabsl_graphcycles_internal.a  /opt/protobuf/lib/libabsl_kernel_timeout_internal.a  /opt/protobuf/lib/libabsl_malloc_internal.a  /opt/protobuf/lib/libabsl_time.a  /opt/protobuf/lib/libabsl_civil_time.a  /opt/protobuf/lib/libabsl_time_zone.a  /opt/protobuf/lib/libabsl_bad_variant_access.a  /opt/protobuf/lib/libutf8_validity.a  /opt/protobuf/lib/libabsl_strings.a  /opt/protobuf/lib/libabsl_int128.a  /opt/protobuf/lib/libabsl_strings_internal.a  /opt/protobuf/lib/libabsl_string_view.a  /opt/protobuf/lib/libabsl_base.a  /opt/protobuf/lib/libabsl_spinlock_wait.a  -lrt  /opt/protobuf/lib/libabsl_throw_delegate.a  /opt/protobuf/lib/libabsl_raw_logging_internal.a  /opt/protobuf/lib/libabsl_log_severity.a && :
+   /usr/bin/ld: /usr/bin/ld: DWARF error: invalid or unhandled FORM value: 0x23
+   CMakeFiles/messages.dir/generated/src/messages.pb.cc.o: in function `absl::lts_20240116::log_internal::LogMessage::operator<<(unsigned long)':
+   messages.pb.cc:(.text._ZN4absl12lts_2024011612log_internal10LogMessagelsEm[_ZN4absl12lts_2024011612log_internal10LogMessagelsEm]+0x19): undefined reference to `_ZN4absl12lts_2024011612log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_'
+   clang++-18: error: linker command failed with exit code 1 (use -v to see invocation)
+   ninja: build stopped: subcommand failed.
+   ```
+
+To launch interactively:
+
+```
+$ ./launch.sh --interactive
+# ./reproduce.sh
+```
+
+Note that compiling in Release mode does not show the error:
+
+```
+$ ./launch.sh --interactive
+# ./reproduce.sh Release
+```
+

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+enum Things {
+  FOO = 0;
+  BAR = 1;
+  BAZ = 2;
+}
+
+message Msg {
+  Things thing = 1;
+  optional double anum = 2;
+  optional string astr = 3;
+}
+
